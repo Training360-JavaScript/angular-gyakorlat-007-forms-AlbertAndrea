@@ -1,0 +1,36 @@
+<div class="roww">
+  <div class="col-6 offset-3">
+    <form #eventForm="ngForm" (ngSubmit)="onUpdate(eventForm)">
+      <div class="form-group">
+        <label>Id</label>
+        <input [(ngModel)]="event.id" name="id" type="text"
+          class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label>Name</label>
+        <input [(ngModel)]="event.name" name="name" type="text"
+          class="form-control" pattern=".{8,}" required>
+        <div [hidden]="eventForm.valid" class="error-message">
+          A névnek minimum 8 karakter hosszúnak kell lennie!
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Date</label>
+        <input [(ngModel)]="event.date" name="date" type="text"
+          class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label>Time</label>
+        <input [(ngModel)]="event.time" name="time" type="text"
+          class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label>Location</label>
+        <input [(ngModel)]="event.location" name="location" type="text"
+          class="form-control" required>
+      </div>
+      <button [disabled]="eventForm.invalid" class="btn btn-block btn-primary">
+        <i class="fa fa-save"></i>
+      </button>
+    </form>
+  </div>
